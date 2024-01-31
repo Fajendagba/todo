@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,19 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
 
-Route::get('/', [TodoController::class, 'index']);
-
-Route::get('/', [TodoController::class, 'index']);
-
-Route::get('create', [TodoController::class, 'create']);
-
-Route::get('details/{todo}', [TodoController::class, 'details']);
-Route::get('edit', [TodoController::class, 'edit']);
-Route::post('update', [TodoController::class, 'update']);
-
-Route::get('delete', [TodoController::class, 'delete']);
-Route::post('store_todo_task', [TodoController::class, 'store_todo_task'])->name('store_todo_task');
