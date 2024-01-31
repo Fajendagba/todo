@@ -9,11 +9,11 @@
             <label for="name">Project Name:</label>
             <input type="text" class="form-control" id="name" name="name" value="{{ $project->name }}" required>
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-outline-todo btn-md">
             Update Project
         </button>
     </form>
-    <a href="{{ route('projects.index') }}" class="btn btn-secondary mt-3">
+    <a href="{{ route('projects.index') }}" class="btn btn-outline-todo btn-md mt-2">
         Back to Projects
     </a>
 @endsection

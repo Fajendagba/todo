@@ -20,7 +20,16 @@
                 @endforeach
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Update Task</button>
+        <div class="form-group">
+            <label for="priority">Priority:</label>
+            <input type="number" class="form-control" id="priority" name="priority" value="{{ $task->priority }}"
+                required>
+        </div>
+        <button type="submit" class="btn btn-outline-todo btn-md mt-2">
+            Update Task
+        </button>
     </form>
-    <a href="{{ route('tasks.index') }}" class="btn btn-secondary mt-3">Back to Tasks</a>
+    <a href="{{ route('tasks.index') }}" class="btn btn-outline-todo btn-md mt-2">
+        Back to Tasks
+    </a>
 @endsection

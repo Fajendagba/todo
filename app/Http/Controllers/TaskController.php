@@ -9,16 +9,27 @@ use Illuminate\Support\Facades\Log;
 
 class TaskController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $tasks = Task::orderBy('priority')
-            ->get();
-        return view('tasks.index', compact('tasks'));
+        $projects = Project::all();
+
+        $selectedProject = $request->get('project_id');
+        $tasksQuery = Task::query();
+
+        if ($selectedProject) {
+            $tasksQuery->where('project_id', $selectedProject);
+        }
+
+        $tasks = $tasksQuery
+            ->orderBy('priority', 'asc') // Order by priority in descending order
+            ->get(['id', 'name', 'project_id', 'priority']);
+
+        return view('tasks.index', compact('tasks', 'projects', 'selectedProject'));
     }
+
 
     public function create()
     {
-        Log::info("message");
         $projects = Project::all();
         return view('tasks.create', compact('projects'));
     }
@@ -28,6 +39,7 @@ class TaskController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'project_id' => 'exists:projects,id',
+            'priority' => 'required|integer|min:1',
         ]);
 
         Task::create($request->all());
@@ -48,6 +60,7 @@ class TaskController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'project_id' => 'exists:projects,id',
+            'priority' => 'nullable|integer|min:1',
         ]);
 
         $task->update($request->all());

@@ -7,14 +7,6 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    public function show(Project $project)
-    {
-        $tasks = $project->tasks()
-            ->orderBy('priority')
-            ->get();
-        return view('tasks.index', compact('tasks'));
-    }
-
     public function index()
     {
         $projects = Project::all();

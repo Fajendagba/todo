@@ -1,0 +1,8 @@
+.btn-outline-todo {
+    border-color: #9890e9;
+    color: #000000;
+}
+.btn-outline-todo:hover {
+    background: #9890e9;
+    color: #ebe4ff;
+}
