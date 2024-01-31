@@ -5,13 +5,11 @@ Database name is todo_test.
 
 2. Create a database with the name: todo_test.
 
-3.  Import the SQL file "todo-db.sql" into your newly created database using phpMyAdmin or any other MySQL GUI tool. This will create all necessary tables for our application.
+3. You should run migration by running php artisan migrate in your terminal.
 
-4. You can also decide not to run migration instead of using the todo-db.sql.
+4. Create project before creating task.
 
-5. Create project before creating task.
-
-6. Start creating task, order and apply filter.
+5. Start creating task, order and apply filter.
 
 ## License
 
